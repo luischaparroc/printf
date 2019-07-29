@@ -33,7 +33,7 @@ int _printf(const char *format, ...)
 						print_buf(buffer, ibuf);
 					free(buffer);
 					va_end(arguments);
-					return(-1);
+					return (-1);
 				}
 				len += function(arguments, buffer, ibuf);
 			}
