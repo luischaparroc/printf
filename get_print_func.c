@@ -19,6 +19,7 @@ int (*get_print_func(char s))(va_list, char *, unsigned int)
 		{"x", print_hex},
 		{"X", print_upx},
 		{"S", print_usr},
+		{"p", print_add},
 		{NULL, NULL},
 	};
 	int i = 0;
