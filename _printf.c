@@ -13,12 +13,11 @@ int _printf(const char *format, ...)
 	int (*function)(va_list, char *, unsigned int);
 	char *buffer;
 
-	if (format == NULL || format[i] == '\0')
-		return (-1);
-
 	va_start(arguments, format);
 	buffer = malloc(sizeof(char) * 1024);
-	while (format[i])
+	if (!format || format[i] == '\0' || !buffer)
+		return (-1);
+	while (format && format[i])
 	{
 		if (format[i] == '%')
 		{
