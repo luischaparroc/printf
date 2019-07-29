@@ -13,14 +13,14 @@ int print_add(va_list arguments, char *buf, unsigned int ibuf)
 	long int int_input;
 	int i, count, first_digit;
 	char *hexadecimal, *binary;
-	char nill[] = "(nil)";
+	char nill[] = "(null)";
 
 	add = (va_arg(arguments, void *));
 	if (add == NULL)
 	{
 		for (i = 0; nill[i]; i++)
 			ibuf = handl_buf(buf, nill[i], ibuf);
-		return (5);
+		return (6);
 	}
 	int_input = (intptr_t)add;
 	binary = malloc(sizeof(char) * (48 + 1));
