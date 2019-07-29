@@ -26,18 +26,19 @@ int _printf(const char *format, ...)
 				handl_buf(buffer, format[i], ibuf), len++;
 			else
 			{
-				function = get_print_func(format, i + 1);
+				function = get_print_func(format[i + 1]);
 				if (function == NULL)
 				{
 					if (ibuf != 0)
 						print_buf(buffer, ibuf);
 					free(buffer);
 					va_end(arguments);
-					return (-1);
+					if (len == 0)
+						len = -1;
+					return (len);
 				}
 				len += function(arguments, buffer, ibuf);
-			}
-			i++;
+			} i++;
 		}
 		else
 			handl_buf(buffer, format[i], ibuf), len++;
