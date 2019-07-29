@@ -15,7 +15,7 @@ int _printf(const char *format, ...)
 
 	va_start(arguments, format);
 	buffer = malloc(sizeof(char) * 1024);
-	if (!format || format[i] == '\0' || !buffer)
+	if (!format || !buffer)
 		return (-1);
 	while (format && format[i])
 	{
@@ -30,10 +30,7 @@ int _printf(const char *format, ...)
 				{
 					if (ibuf != 0)
 						print_buf(buffer, ibuf);
-					free(buffer);
-					va_end(arguments);
-					if (len == 0)
-						len = -1;
+					free(buffer), va_end(arguments);
 					return (len);
 				}
 				len += function(arguments, buffer, ibuf);
@@ -46,5 +43,7 @@ int _printf(const char *format, ...)
 			ibuf -= 1024;
 	}
 	print_buf(buffer, ibuf), free(buffer), va_end(arguments);
+	if (len == 0)
+		return (0);
 	return (len);
 }
