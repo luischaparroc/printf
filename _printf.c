@@ -24,17 +24,17 @@ int _printf(const char *format, ...)
 		{
 			if (format[i + 1] == '%')
 				handl_buf(buffer, format[i], ibuf), len++;
-			else if (format[i + 1] == '\0')
-			{
-				if (ibuf != 0)
-					print_buf(buffer, ibuf);
-				free(buffer);
-				va_end(arguments);
-				return (len);
-			}
 			else
 			{
 				function = get_print_func(format, i + 1);
+				if (function == NULL)
+				{
+					if (ibuf != 0)
+						print_buf(buffer, ibuf);
+					free(buffer);
+					va_end(arguments);
+					return(-1);
+				}
 				len += function(arguments, buffer, ibuf);
 			}
 			i++;
