@@ -31,7 +31,8 @@ int (*get_print_func(const char *s, int index))(va_list, char *, unsigned int)
 		{" X", print_upx}, {"R", print_rot},
 		{"r", print_rev}, {"%", print_prg},
 		{"l", print_prg}, {"h", print_prg},
-		{NULL, NULL},
+		{" %", print_prg}, {"#%", print_prg},
+		{"+%", print_prg}, {NULL, NULL},
 	};
 	int i = 0, j = 0, first_index;
 
