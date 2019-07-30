@@ -1,13 +1,11 @@
 #include "holberton.h"
-
 /**
- * get_print_func - selects the correct function to perform the operation.
+ * ev_print_func - returns the amount of identifiers.
  * @s: argument indentifier
- * @index: index for argument indentifier
- * Return: pointer to a function.
+ * @index: index of argument identifier.
+ * Return: amount of identifiers.
  */
-
-int (*get_print_func(const char *s, int index))(va_list, char *, unsigned int)
+int ev_print_func(const char *s, int index)
 {
 	print_t pr[] = {
 		{"c", print_chr}, {"s", print_str},
@@ -42,5 +40,5 @@ int (*get_print_func(const char *s, int index))(va_list, char *, unsigned int)
 			index = first_index;
 		}
 	}
-	return (pr[i].f);
+	return (j);
 }
