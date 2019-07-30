@@ -22,7 +22,7 @@ int ev_print_func(const char *s, int index)
 		{"+x", print_hex}, {"+X", print_upx}, {" i", prinsint},
 		{" d", prinsint}, {" u", print_unt}, {" o", print_oct},
 		{" x", print_hex}, {" X", print_upx}, {"R", print_rot},
-		{"r", print_rev}, {NULL, NULL},
+		{"r", print_rev}, {"%", print_prg}, {NULL, NULL},
 	};
 	int i = 0, j = 0, first_index;
 

@@ -22,18 +22,18 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] == '%')
 		{
-			if (format[i + 1] == '%')
-				handl_buf(buffer, format[i], ibuf), len++;
-			else if (format[i + 1] == '\0')
-			{
-				print_buf(buffer, ibuf), free(buffer), va_end(arguments);
+			if (format[i + 1] == '\0')
+			{	print_buf(buffer, ibuf), free(buffer), va_end(arguments);
 				return (-1);
 			}
 			else
-			{
-				function = get_print_func(format, i + 1);
+			{	function = get_print_func(format, i + 1);
 				if (function == NULL)
+				{
 					handl_buf(buffer, format[i], ibuf), len++, i--;
+					if (format[i + 1] == ('l' || 'h' || '+' || ' ' || '#'))
+						len++, i--;
+				}
 				else
 				{
 					len += function(arguments, buffer, ibuf);
