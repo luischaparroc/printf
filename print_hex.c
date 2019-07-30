@@ -1,6 +1,6 @@
 #include "holberton.h"
 /**
- * print_hex - prints a long decimal in hexadecimal
+ * print_hex - prints a decimal in hexadecimal
  * @arguments: input string
  * @buf: buffer pointer
  * @ibuf: index for buffer pointer
