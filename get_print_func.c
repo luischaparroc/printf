@@ -1,12 +1,10 @@
 #include "holberton.h"
-
 /**
  * get_print_func - selects the correct function to perform the operation.
  * @s: argument indentifier
  * @index: index for argument indentifier
  * Return: pointer to a function.
  */
-
 int (*get_print_func(const char *s, int index))(va_list, char *, unsigned int)
 {
 	print_t pr[] = {
@@ -21,7 +19,16 @@ int (*get_print_func(const char *s, int index))(va_list, char *, unsigned int)
 		{"lX", prinlupx}, {"hi", prinhint},
 		{"hd", prinhint}, {"hu", prinhunt},
 		{"ho", prinhoct}, {"hx", prinhhex},
-		{"hX", prinhupx}, {"R", print_rot},
+		{"hX", prinhupx}, {"#o", prinnoct},
+		{"#x", prinnhex}, {"#X", prinnupx},
+		{"#i", print_int}, {"#d", print_int},
+		{"#u", print_unt}, {"+i", prinpint},
+		{"+d", prinpint}, {"+u", print_unt},
+		{"+o", print_oct}, {"+x", print_hex},
+		{"+X", print_upx}, {" i", prinsint},
+		{" d", prinsint}, {" u", print_unt},
+		{" o", print_oct}, {" x", print_hex},
+		{" X", print_upx}, {"R", print_rot},
 		{"r", print_rev}, {NULL, NULL},
 	};
 	int i = 0, j = 0, first_index;
