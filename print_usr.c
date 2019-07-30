@@ -1,6 +1,7 @@
 #include "holberton.h"
 /**
- * print_usr - writes the character c to stdout
+ * print_usr - prints a string and values of
+ * non-printed chars
  * @arguments: input string
  * @buf: buffer pointer
  * @ibuf: index for buffer pointer
