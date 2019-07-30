@@ -31,14 +31,14 @@ int _printf(const char *format, ...)
 			}
 			else
 			{
-				function = get_print_func(format[i + 1]);
+				function = get_print_func(format, i + 1);
 				if (function == NULL)
-				{
-					handl_buf(buffer, format[i], ibuf);
-					len++, i--;
-				}
+					handl_buf(buffer, format[i], ibuf), len++, i--;
 				else
+				{
 					len += function(arguments, buffer, ibuf);
+					i += ev_print_func(format, i + 1);
+				}
 			} i++;
 		}
 		else

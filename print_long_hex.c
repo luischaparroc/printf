@@ -1,17 +1,17 @@
 #include "holberton.h"
 /**
- * print_upx - prints a decimal in hexadecimal
- * @arguments: The character to print
+ * prinlhex - prints a long decimal in hexadecimal
+ * @arguments: input string
  * @buf: buffer pointer
  * @ibuf: index for buffer pointer
  * Return: number of chars printed
  */
-int print_upx(va_list arguments, char *buf, unsigned int ibuf)
+int prinlhex(va_list arguments, char *buf, unsigned int ibuf)
 {
-	int int_input, i, isnegative, count, first_digit;
+	long int int_input, i, isnegative, count, first_digit;
 	char *hexadecimal, *binary;
 
-	int_input = va_arg(arguments, int);
+	int_input = va_arg(arguments, long int);
 	isnegative = 0;
 	if (int_input == 0)
 	{
@@ -23,10 +23,11 @@ int print_upx(va_list arguments, char *buf, unsigned int ibuf)
 		int_input = (int_input * -1) - 1;
 		isnegative = 1;
 	}
-	binary = malloc(sizeof(char) * (32 + 1));
-	binary = fill_binary_array(binary, int_input, isnegative, 32);
-	hexadecimal = malloc(sizeof(char) * (8 + 1));
-	hexadecimal = fill_hex_array(binary, hexadecimal, 1, 8);
+
+	binary = malloc(sizeof(char) * (64 + 1));
+	binary = fill_binary_array(binary, int_input, isnegative, 64);
+	hexadecimal = malloc(sizeof(char) * (16 + 1));
+	hexadecimal = fill_hex_array(binary, hexadecimal, 0, 16);
 	for (first_digit = i = count = 0; hexadecimal[i]; i++)
 	{
 		if (hexadecimal[i] != '0' && first_digit == 0)
