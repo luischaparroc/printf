@@ -31,7 +31,7 @@ int _printf(const char *format, ...)
 				if (function == NULL)
 				{
 					handl_buf(buffer, format[i], ibuf), len++, i--;
-					if (format[i + 1] == ('+' || ' ' || '#'))
+					if (format[i + 1] == ('+' || '#' || ' '))
 						len++, i--;
 				}
 				else
